@@ -1,0 +1,71 @@
+CLI
+
+mkdir  (make directory)
+
+cd  (change directory)
+cd .. (back)
+
+pwd (Pathway Directory) Yauk shi nay tae path lann kyaung
+ 
+ls (list)
+ls -la	(list all)
+
+mv name.md renamed.md (cut function used as rename)
+mv (move)
+rm (remove)
+rm -R (remove directory)
+cp (copy)
+
+touch filename.txt (update last modified date) (make the file if it doesn't exist)
+
+echo "Hello" > filename.txt (write to file)
+
+cat filename.txt (read)
+
+nano filename.txt (command line text editor)
+
+vim filename.txt 
+(command mode is default. 
+Press I to change to insert mode. 
+Press Esc to change back to command mode. 
+:w to save :q to quit)
+
+
+GIT CheatSheet 
+
+git init (changed the current folder into git repository)
+git status (Untracked files : files which are not in control of GIT)
+git add filename.txt (put the file into GIT control)
+git add . (put all the files into GIT control)
+git commit -m "Commit name" (save repository)
+git tag v0.1.0 (important update)
+git log
+git checkout v0.1.0 (Switch to other versions)
+git checkout master (latest version)
+
+checking out to untagged version requires HashID (git checkout b2ff6e2) only 7 also ok
+
+Current Branch -> Master Branch
+When testing out new features, 
+Split into another branch to work on it before adding it back to the master branch 
+while master branch is also still developing
+
+
+git branch (check the branches)
+git branch branchname (create a branch)
+git checkout branchname (Switch to another branch)
+
+When combining branches, change back to master branch.
+
+git merge (Merge branches)
+
+git clone foldername (clone)
+git remote show origin (Check origin)
+git pull (Clone pulls update from the origin)
+git push (Clone pushes update to the origin) wont work
+
+git init --bare (Means not a source code repo just bare repo recording history) Distributed git
+
+
+git remote add origin http://github.com/thenotsorealkk/rockstar2
+git push -u origin master
