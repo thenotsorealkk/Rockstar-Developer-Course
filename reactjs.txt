@@ -1,0 +1,46 @@
+mkdir node_modules
+npm i create-react-app
+npm i -g create-react-app(globally)
+
+
+npx create-react-app hello-react
+
+cd hello-react
+npm start
+
+
+React Components
+
+
+
+function App(){
+	return (<div></div>);
+}
+
+class Item extends React.Component {
+  render() {
+    return (
+         <li> {this.props.name} </li>
+    );
+  }
+}
+
+
+class App extends React.Component {
+     constructor(){
+          super();
+
+          this.state = {
+               data : ['Bob', 'Alice', 'Mary', 'tom']
+          }
+     }
+	render() {
+		return (
+			React.createElement('div', {title: 'some title'}, 'Hello World');
+			<div title="some title"> Hello World </div>
+                    	{this.state.data.map( item => <Item name={item}/> )}
+
+		);
+	}
+}
+

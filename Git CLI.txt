@@ -67,5 +67,5 @@ git push (Clone pushes update to the origin) wont work
 git init --bare (Means not a source code repo just bare repo recording history) Distributed git
 
 
-git remote add origin http://github.com/thenotsorealkk/rockstar2
+git remote add origin https://github.com/thenotsorealkk/Rockstar-Developer-Course
 git push -u origin master
