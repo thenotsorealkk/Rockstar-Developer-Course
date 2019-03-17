@@ -7,7 +7,7 @@ class List extends React.Component {
           return(
                <ul>
                     {data.map(item => {
-                         return <Item name={item}/>
+                         return <Item name={item} remove={this.props.remove}/>
                     })}
                </ul>
           )
