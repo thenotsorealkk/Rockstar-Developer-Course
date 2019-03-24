@@ -5,6 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 class App extends React.Component{
      render(){
@@ -21,6 +26,12 @@ class App extends React.Component{
                          <Button color="inherit">Login</Button>
                        </Toolbar>
                      </AppBar>
+                     <BottomNavigation style={{}} showLabels>
+                       <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+                       <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+                       <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                     </BottomNavigation>
+
                </div>
           );
      }
