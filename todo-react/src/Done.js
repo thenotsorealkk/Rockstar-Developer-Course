@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import List from '@material-ui/core/List';
 
 
 class Done extends React.Component {
@@ -7,11 +8,11 @@ class Done extends React.Component {
           var tasks = this.props.tasks.filter(task => {return task.status == 1});
 
           return(
-               <ul>
+               <List>
                     {tasks.map(task => {
                          return <Item undo={this.props.undo} remove={this.props.remove} key={task.id} task={task}/>;
                     })}
-               </ul>
+               </List>
           )
      }
 }

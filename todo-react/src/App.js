@@ -4,7 +4,8 @@ import Item from './Item';
 import Done from './Done';
 import Todo from './Todo';
 import Add from './Add';
-
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
 class App extends React.Component {
 
 
@@ -19,7 +20,16 @@ class App extends React.Component {
 
           })
      }
-
+     clearAll = () => {
+          this.setState({
+               tasks: this.state.tasks.filter(item => item.status === 3)
+          })
+     }
+     clearAllToDo = () => {
+          this.setState({
+               tasks: this.state.tasks.filter(item => item.status === 1)
+          })
+     }
      clearAllDone = () => {
           this.setState({
                tasks: this.state.tasks.filter(item => item.status === 0)
@@ -65,22 +75,31 @@ class App extends React.Component {
                <div>
                     <Header count={this.state.tasks.filter(task => {
                          return task.status == 0;
-                    }).length} name="Todo"/>
+                    }).length} clearAllDone={this.clearAllDone} clearAllToDo={this.clearAllToDo} name="Todo"/>
+                    <div style={{margin : 20}}>
+                         <Todo done={this.done} remove={this.remove} tasks={this.state.tasks}> </Todo>
 
-                    <Todo done={this.done} remove={this.remove} tasks={this.state.tasks}> </Todo>
+                         <Divider/>
+                    </div>
 
-                    <hr/>
+                         <Header count={this.state.tasks.filter(task => {
+                              return task.status == 1;
+                         }).length}  clearAllDone={this.clearAllDone} clearAllToDo={this.clearAllToDo} name="Done" />
+                    <div style={{margin : 20}}>
 
-                    <Header count={this.state.tasks.filter(task => {
-                         return task.status == 1;
-                    }).length} name="Done" />
+                         <Done undo={this.undo} remove={this.remove} tasks={this.state.tasks}> </Done>
 
-                    <Done undo={this.undo} remove={this.remove} tasks={this.state.tasks}> </Done>
-
-                    <hr/>
-                    <button onClick={this.clearAllDone}> Clear All Done </button>
-                    <Add add={this.add}/>
-
+                         <Divider/>
+                         <Add add={this.add}/>
+                         <br/>
+                         <Button onClick={()=>{
+                              this.clearAll();
+                         }}
+                              variant="outlined"
+                              color="secondary">
+                              Clear All
+                         </Button>
+                    </div>
                </div>
           );
      }
