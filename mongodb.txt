@@ -1,0 +1,18 @@
+db.tasks.insert({ 'subject': 'Milk', 'status': 0 })
+
+db.tasks.find()
+db.tasks.find().pretty()
+db.tasks.find({'status': 1})
+
+db.tasks.remove({'subject': 'Apple'})
+
+db.tasks.save({ '_id': ObjectId(9123213213213), .... })
+
+db.tasks.update(
+	{
+		subject' : 'Bread'
+	},
+	{
+		$set: {'status' : 1}
+	}
+)
