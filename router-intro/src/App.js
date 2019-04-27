@@ -1,10 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import MyAppBar from './MyAppBar';
 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -14,6 +9,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 class App extends React.Component {
   state = {
@@ -29,16 +29,9 @@ class App extends React.Component {
     return(
       <Router>
         <div>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton onClick={this.toggleDrawer(true)} color="inherit" aria-label="Menu">
-              <MenuIcon/>
-            </IconButton>
-            <Typography variant="h6" color="inherit">
-              News
-            </Typography>
-          </Toolbar>
-          </AppBar>
+          <MyAppBar toggleDrawer = {this.toggleDrawer} count={4} />
+          <br/> <br/>
+          Not having count property or giving non-numeric value will result in error in console
           <SwipeableDrawer
                 open={this.state.drawer}
                 onClose={this.toggleDrawer(false)}
@@ -63,9 +56,27 @@ class App extends React.Component {
                 </ListItem>
                 </List>
             </SwipeableDrawer>
+            <BottomNavigation
+              style={{ position : 'absolute', bottom : 0, width: '100%'}}
+            >
+              <Link to="/more/recents">
+                <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+                </Link>
+              <Link to="/more/favorites">
+                <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+              </Link>
+              <Link to="/more/location">
+                <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+              </Link>
+            </BottomNavigation>
+
+
             <Route exact path="/" component = {Home} />
             <Route path="/about" component = {About} />
             <Route path="/contact" component = {Contact} />
+            <Route path="/more/:label" component = {More} />
+
+
         </div>
       </Router>
     )
@@ -75,5 +86,6 @@ class App extends React.Component {
 const Home = props => <h1> Home </h1>
 const About = props => <h1> About </h1>
 const Contact = props => <h1> Contact </h1>
+const More = props => <h1> More - {props.match.params.label} </h1>
 
 export default App;
