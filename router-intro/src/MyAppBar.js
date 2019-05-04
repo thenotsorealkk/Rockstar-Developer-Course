@@ -12,8 +12,8 @@ class MyAppBar extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar>
-          <IconButton color="inherit" aria-label="Menu">
-            <MenuIcon onClick={this.props.toggleDrawer(true)}/>
+          <IconButton color="inherit" aria-label="Menu"  onClick={this.props.toggleDrawer(true)}>
+            <MenuIcon/>
           </IconButton>
           <Typography variant="h6" color="inherit">
             React Router ({this.props.count})

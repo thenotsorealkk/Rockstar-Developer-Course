@@ -1,0 +1,15 @@
+npm run build
+index.html -> file path remove /
+
+
+Android studio
+Emulator
+cordova.apache.org
+
+sudo npm i cordova
+cordova platform add android
+
+expo.io
+install on your phone
+expo init ProjectName
+

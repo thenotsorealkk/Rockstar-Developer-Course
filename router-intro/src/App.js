@@ -39,18 +39,18 @@ class App extends React.Component {
               >
                 <header style={{width: 200, height: 100, background: 'gray'}}> </header>
                 <List>
-                <ListItem>
-                  <Link to="/" onClick={this.toggleDrawer(false)}>
+                <ListItem onClick={this.toggleDrawer(false)}>
+                  <Link to="/">
                     <ListItemText primary="Home"> </ListItemText>
                   </Link>
                 </ListItem>
-                <ListItem>
-                  <Link to="/about" onClick={this.toggleDrawer(false)}>
+                <ListItem onClick={this.toggleDrawer(false)}>
+                  <Link to="/about">
                     <ListItemText primary="About"> </ListItemText>
                   </Link>
                 </ListItem>
-                <ListItem>
-                  <Link to="/contact" onClick={this.toggleDrawer(false)}>
+                <ListItem onClick={this.toggleDrawer(false)}>
+                  <Link to="/contact">
                     <ListItemText primary="Contact"> </ListItemText>
                   </Link>
                 </ListItem>
